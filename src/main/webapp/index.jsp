@@ -79,7 +79,7 @@
         <p><strong>Java Version:</strong> JDK 17</p>
         <p><strong>Server:</strong> Apache Tomcat</p>
         <p><strong>Packaging:</strong> WAR</p>
-        <p><strong>Artifactory:</strong>JFrog</p>
+        <p><strong>Artifactory:</strong> JFrog</p>
     </div>
 
     <footer>
