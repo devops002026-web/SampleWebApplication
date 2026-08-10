@@ -70,18 +70,20 @@
       <p>
         A clean and simple Java-based web application deployed on
         <strong>Apache Tomcat</strong> and built using
-        <strong>JENKINS Master and Slave architecture</strong>.
+        <strong
+          >JENKINS Master and Slave architecture and deploying war to
+          Jfrog</strong
+        >.
       </p>
 
       <div class="info">
         <p><strong>Application Type:</strong> Java Web Application</p>
-        
+
         <p><strong>Build Tool:</strong> Maven</p>
         <p><strong>Java Version:</strong> JDK 17</p>
         <p><strong>Server:</strong> Apache Tomcat</p>
         <p><strong>Packaging:</strong> WAR</p>
         <p><strong>Artifactory:</strong> JFrog artifactory</p>
-         
       </div>
 
       <footer>
