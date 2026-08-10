@@ -1,39 +1,62 @@
+```groovy
 pipeline {
-    agent any 
+    agent any
 
     stages {
-        stage('checkout') {
+
+        stage('Checkout') {
             steps {
-                checkout ({
+                checkout([
                     $class: 'GitSCM',
-                    branches : [[name: '*/main']],
-                    userRemoteConfigs: [[url: 'https://github.com/devops002026-web/SampleWebApplication.git']]
-                })
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/devops002026-web/SampleWebApplication.git'
+                    ]]
+                ])
             }
         }
 
-        stage ('Build') {
+        stage('Build') {
             steps {
-                sh 'mvn clean install'  // war gets genewrated in target folder
+                sh 'mvn clean package -DskipTests'
             }
         }
 
-        stage ('Test') {
+        stage('Test') {
             steps {
-                sh 'mvn test' // run test cases / unit tests 
+                sh 'mvn test'
             }
         }
 
-        stage ('Deploy') {
+        stage('Deploy to JFrog') {
             steps {
                 configFileProvider([
-                    configFile(fileId: 'ba1cfde0-e4e7-4537-8b4a-e05c48350215',
-                    variable: 'MAVEN_SETTINGS')
+                    configFile(
+                        fileId: 'ba1cfde0-e4e7-4537-8b4a-e05c48350215',
+                        variable: 'MAVEN_SETTINGS'
+                    )
                 ]) {
-                    sh 'mvn deploy -s $MAVEN_SETTINGS'  // deploy to nexus
+                    sh '''
+                        echo "Deploying artifact to JFrog Artifactory..."
+                        mvn deploy -s "$MAVEN_SETTINGS" -DskipTests
+                    '''
                 }
-        
             }
         }
     }
+
+    post {
+        success {
+            echo '========================================'
+            echo 'BUILD AND JFROG DEPLOYMENT SUCCESSFUL'
+            echo '========================================'
+        }
+
+        failure {
+            echo '========================================'
+            echo 'PIPELINE FAILED'
+            echo '========================================'
+        }
+    }
 }
+```
