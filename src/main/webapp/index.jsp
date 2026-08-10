@@ -69,7 +69,8 @@
 
       <p>
         A clean and simple Java-based web application deployed on
-        <strong>Apache Tomcat</strong> and built using <strong>JENKINS</strong>.
+        <strong>Apache Tomcat</strong> and built using
+        <strong>JENKINS Master and Slave architecture</strong>.
       </p>
 
       <div class="info">
@@ -78,7 +79,7 @@
         <p><strong>Java Version:</strong> JDK 17</p>
         <p><strong>Server:</strong> Apache Tomcat</p>
         <p><strong>Packaging:</strong> WAR</p>
-        <p><strong>Artifactory:</strong> JFrog 1234567</p>
+        <p><strong>Artifactory:</strong> JFrog artifactory</p>
       </div>
 
       <footer>
