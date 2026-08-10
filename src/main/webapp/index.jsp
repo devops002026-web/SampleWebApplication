@@ -75,11 +75,13 @@
 
       <div class="info">
         <p><strong>Application Type:</strong> Java Web Application</p>
+         <strong>*****************</strong>.
         <p><strong>Build Tool:</strong> Maven</p>
         <p><strong>Java Version:</strong> JDK 17</p>
         <p><strong>Server:</strong> Apache Tomcat</p>
         <p><strong>Packaging:</strong> WAR</p>
         <p><strong>Artifactory:</strong> JFrog artifactory</p>
+          <strong>*****************</strong>.
       </div>
 
       <footer>
